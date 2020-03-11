@@ -1,5 +1,5 @@
 ## Management System
-본 프로젝트는 나동빈 개발자의 고객관리 강의를 토대로 공부한 고객관리 시스템입니다.
+본 프로젝트는 나동빈 개발자의 고객관리 강의를 토대로 공부한 고객관리 시스템입니다!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
