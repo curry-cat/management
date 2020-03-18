@@ -27,25 +27,38 @@ const styles = theme => ({
 
 class App extends Component {
 
-    state = {
-      customers:"",
-      completed: 0
+    constructor(props){
+      super(props);
+      this.state = {
+        customers: '',
+        completed: 0
+      }
     }
 
-    componentDidMount(){
-      this.timer = setInterval(this.progress, 20);
-      this.callApi()
+    stateRefresh = () => {
+      this.setState({
+        customers: '',
+        completed: 0
+      });
+      this.callApi() //조회
         .then(res => this.setState({customers:res}))
         .catch(err => console.log(err))
     }
 
-    callApi = async () => {
+    componentDidMount(){
+      this.timer = setInterval(this.progress, 20);  //20만큼 대기시간을 갖는 로딩바
+      this.callApi() //조회
+        .then(res => this.setState({customers:res}))
+        .catch(err => console.log(err))
+    }
+
+    callApi = async () => { //비동기로 API호출
       const response = await fetch('api/customers');
       const body = await response.json();
       return body;
     }
 
-    render() {
+    render() {  //실제화면
       const { classes } = this.props;
       return(
         <div>
@@ -74,7 +87,7 @@ class App extends Component {
             </TableBody>
             </Table>
           </Paper>
-          <CustomerAdd/>
+          <CustomerAdd stateRefresh={this.stateRefresh}/>
         </div>
       );
     }

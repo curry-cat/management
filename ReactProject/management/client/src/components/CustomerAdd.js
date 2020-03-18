@@ -1,6 +1,7 @@
 import React from 'react';
 import {post} from 'axios';
 
+/* 사용자추가 콤퍼넌트 */
 class CustomerAdd extends React.Component{
     constructor(props){
         super(props);
@@ -20,6 +21,7 @@ class CustomerAdd extends React.Component{
         this.addCustomer()
             .then((response) => {
                 console.log(response.data);
+                this.props.stateRefresh();
             })
         this.setState({
             file: null,
@@ -30,7 +32,6 @@ class CustomerAdd extends React.Component{
             job: '',
             fileName: ''
         })
-        window.location.reload();
     }
 
     handleFileChange = (e) => {

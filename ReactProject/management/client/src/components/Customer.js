@@ -2,6 +2,7 @@ import React from 'react';
 import TableRow from '@material-ui/core/TableRow'
 import TableCell from '@material-ui/core/TableCell'
 
+/* 상단 리스트 콤퍼넌트 */
 class Customer extends React.Component {
     render(){
         return(
